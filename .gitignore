@@ -31,6 +31,7 @@ ml/dataset/
 
 # ML model artifacts
 *.joblib
+!ml/models/phishlens_robust_logistic_regression.joblib
 *.pkl
 *.pickle
 *.h5
