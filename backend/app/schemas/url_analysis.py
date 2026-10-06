@@ -11,6 +11,13 @@ class SecurityIndicator(BaseModel):
     message: str
 
 
+class URLSignal(BaseModel):
+    name: str
+    value: str
+    interpretation: str
+    severity: str
+
+
 class URLAnalysisResponse(BaseModel):
     url: str
     classification: str
@@ -18,3 +25,4 @@ class URLAnalysisResponse(BaseModel):
     phishing_probability: float
     legitimate_probability: float
     indicators: list[SecurityIndicator]
+    signals: list[URLSignal]

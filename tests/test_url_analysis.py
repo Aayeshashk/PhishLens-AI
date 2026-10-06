@@ -234,25 +234,24 @@ def test_trailing_slash_consistency():
 def test_response_structure():
     response = client.post(
         "/api/v1/analyze/url",
-        json={
-            "url": "https://www.google.com"
-        },
+        json={"url": "https://www.google.com/"},
     )
 
     assert response.status_code == 200
 
     data = response.json()
 
-    expected_fields = {
+    expected_keys = {
         "url",
         "classification",
         "risk_score",
         "phishing_probability",
         "legitimate_probability",
         "indicators",
+        "signals",
     }
 
-    assert set(data.keys()) == expected_fields
+    assert set(data.keys()) == expected_keys
 
     assert isinstance(data["url"], str)
     assert isinstance(data["classification"], str)
@@ -260,3 +259,4 @@ def test_response_structure():
     assert isinstance(data["phishing_probability"], float)
     assert isinstance(data["legitimate_probability"], float)
     assert isinstance(data["indicators"], list)
+    assert isinstance(data["signals"], list)
