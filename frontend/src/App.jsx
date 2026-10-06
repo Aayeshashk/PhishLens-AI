@@ -10,8 +10,7 @@ import "./App.css";
 
 
 
-const API_URL = "http://127.0.0.1:8000/api/v1/analyze/url";
-
+const API_URL = "https://phishlens-ai-ljq9.onrender.com/api/v1/analyze/url";
 
 
 
